@@ -8,27 +8,26 @@ import { useState } from 'react'
 export default function Header() {
 
     const [hovered, setHover] = useState('');
+    const [set, setSet] = useState('');
 
     return (
         <>
-            <section style={{ width: '100%'}}>
-                <div style={{ height: 350, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', position: 'absolute', zIndex: 1 }}>
-                    <div style={{ marginBottom: 5 }}>
-                        <figure>
-                            <img style={{ maxWidth: 500 }} src={logo} alt="Logo" />
-                        </figure>
+            <section style={{ width: '100%' }}>
+                <div id='header-hold' style={{ height: 120, display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: '#ca2405', backgroundImage: 'url(https://i.pinimg.com/564x/00/c0/9d/00c09de812b0d3610e938c468b911dae.jpg)', backgroundSize: 'cover' }}>
+                    <div id='header-content-hold' style={{ width: '80%', display: 'flex', justifyContent: 'space-around' }}>
+                        <div>
+                            <figure>
+                                <img style={{ maxWidth: 250 }} src={logo} alt="Logo" onClick={() => setSet('home')} />
+                            </figure>
+                        </div>
+                        <div id='header-menu' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '40%' }}>
+                            <p className='menu-item' style={{ borderBottom: hovered == 'home' || set == 'home' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('home')} onMouseLeave={() => setHover('')} onClick={() => setSet('home')}>HOME</p>
+                            <p className='menu-item' style={{ borderBottom: hovered == 'about' || set == 'about' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('about')} onMouseLeave={() => setHover('')} onClick={() => setSet('about')}>ABOUT</p>
+                            <p className='menu-item' style={{ borderBottom: hovered == 'menu' || set == 'menu' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('menu')} onMouseLeave={() => setHover('')} onClick={() => setSet('menu')}>MENU</p>
+                            <p className='menu-item' style={{ borderBottom: hovered == 'contact' || set == 'contact' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('contact')} onMouseLeave={() => setHover('')} onClick={() => setSet('contact')}>CONTACT</p>
+                        </div>
                     </div>
-                    <div id='header-menu' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <img style={{ width: 100, height: 32, padding: 7, borderBottom: hovered == 'menu' ? '3px solid white' : 'none'}} onMouseEnter={() => setHover('menu')} onMouseLeave={() => setHover('')} src={menu} alt="menu text" />
-                        <img style={{ width: 140, height: 50, borderBottom: hovered == 'location' ? '3px solid white' : 'none'}} onMouseEnter={() => setHover('location')} onMouseLeave={() => setHover('')} src={location} alt="location text" />
-                        <img style={{ width: 140, height: 50, borderBottom: hovered == 'goal' ? '3px solid white' : 'none'}} onMouseEnter={() => setHover('goal')} onMouseLeave={() => setHover('')} src={ourGoal} alt="our goal text" />
-                    </div>
                 </div>
-                <div className="hf-wrapimg" style={{ height: '100%', width: '100%', backgroundImage: 'url(https://t3.ftcdn.net/jpg/04/02/01/78/360_F_402017867_lK95Sff724B35wAQ76OzaMoRbP70Z14B.jpg)', backgroundSize: 'cover', filter: 'blur(2.5px) opacity(.5)', boxShadow: 'rgba(0, 0, 0, 0.25) 0px 0px 15px 4px inset', backgroundAttachment: 'fixed' }}>
-                </div>
-                </div>
-                
             </section>
         </>
     )

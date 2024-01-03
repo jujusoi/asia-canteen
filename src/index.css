@@ -54,6 +54,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.main-div {
+  margin-top: 30px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -64,5 +68,22 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media only screen and (max-width: 690px) {
+  #header-content-hold {
+    flex-direction: column;
+    width: 100% !important;
+    align-items: center !important;
+  }
+  #header-hold {
+    height: 200px !important;
+  }
+  #header-menu {
+    width: 70% !important;
+  }
+  .menu-item {
+    font-size: 14px;
   }
 }
