@@ -58,6 +58,11 @@ button:focus-visible {
   margin-top: 30px;
 }
 
+.header-anc {
+  color: white;
+  font-weight: 450;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

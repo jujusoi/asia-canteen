@@ -4,11 +4,18 @@ import ourGoal from './assets/image/our-goal.png'
 import location from './assets/image/locatio.png'
 
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Header() {
 
     const [hovered, setHover] = useState('');
     const [set, setSet] = useState('');
+    
+    const hoveredOver = (name) => {
+        return {
+            borderBottom: hovered === name || set === name ? '2px solid white' : 'none'
+        };
+    };
 
     return (
         <>
@@ -21,10 +28,10 @@ export default function Header() {
                             </figure>
                         </div>
                         <div id='header-menu' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '40%' }}>
-                            <p className='menu-item' style={{ borderBottom: hovered == 'home' || set == 'home' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('home')} onMouseLeave={() => setHover('')} onClick={() => setSet('home')}>HOME</p>
-                            <p className='menu-item' style={{ borderBottom: hovered == 'about' || set == 'about' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('about')} onMouseLeave={() => setHover('')} onClick={() => setSet('about')}>ABOUT</p>
-                            <p className='menu-item' style={{ borderBottom: hovered == 'menu' || set == 'menu' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('menu')} onMouseLeave={() => setHover('')} onClick={() => setSet('menu')}>MENU</p>
-                            <p className='menu-item' style={{ borderBottom: hovered == 'contact' || set == 'contact' ? '2px solid white' : 'none' }} onMouseEnter={() => setHover('contact')} onMouseLeave={() => setHover('')} onClick={() => setSet('contact')}>CONTACT</p>
+                            <p className='menu-item' style={hoveredOver('home')} onMouseEnter={() => setHover('home')} onMouseLeave={() => setHover('')} onClick={() => setSet('home')}><Link className='header-anc' to={'/'}>HOME</Link></p>
+                            <p className='menu-item' style={hoveredOver('about')} onMouseEnter={() => setHover('about')} onMouseLeave={() => setHover('')} onClick={() => setSet('about')}><Link className='header-anc' to={'/about'}>ABOUT</Link></p>
+                            <p className='menu-item' style={hoveredOver('menu')} onMouseEnter={() => setHover('menu')} onMouseLeave={() => setHover('')} onClick={() => setSet('menu')}><Link className='header-anc' to={'/menu'}>MENU</Link></p>
+                            <p className='menu-item' style={hoveredOver('contact')} onMouseEnter={() => setHover('contact')} onMouseLeave={() => setHover('')} onClick={() => setSet('contact')}><Link className='header-anc' to={'/contact'}>CONTACT</Link></p>
                         </div>
                     </div>
                 </div>
